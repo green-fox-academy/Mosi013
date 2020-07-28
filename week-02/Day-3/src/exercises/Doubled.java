@@ -12,14 +12,14 @@ public class Doubled {
 
   public static void main(String[] args) throws IOException {
     // Create a method that decrypts the duplicated-chars.txt
-    destroyDuplicated("txt/duplicated-chars.txt", "txt/asd.txt");
+    destroyDuplicated("txt/duplicated-chars.txt",
+        "txt/blabla-chars.txt");
   }
 
   private static void destroyDuplicated(String inputFile, String outputFile) throws IOException {
     Path filePath = Paths.get(inputFile);
     Path outFilePath = Paths.get(outputFile);
     List<String> file = new ArrayList<>();
-    ArrayList<String> stringArray = new ArrayList<>();
     String holder = "";
 
     try {
@@ -31,13 +31,12 @@ public class Doubled {
     for (String line : file) {
       line += "\n";
       for (int i = 0; i < line.length(); i++) {
-        if (i % 2 == 0){
+        if (i % 2 == 0) {
           holder += line.charAt(i);
         }
       }
     }
-
-
+    
     Files.write(outFilePath, Collections.singleton(holder));
 
   }
