@@ -7,7 +7,6 @@ When creating one, we need to specify the color and the width
 Every sharpie is created with a default 100 as inkAmount
 We can use() the sharpie objects
 which decreases inkAmount*/
-
   private String color;
   private float width;
   private float inkAmount;
@@ -18,11 +17,7 @@ which decreases inkAmount*/
     this.inkAmount = 100;
   }
 
-  public void use() {
-    this.inkAmount = inkAmount - 2;
-  }
-
-  public float getInkAmount() {
-    return inkAmount;
+  public void use(){
+    inkAmount--;
   }
 }

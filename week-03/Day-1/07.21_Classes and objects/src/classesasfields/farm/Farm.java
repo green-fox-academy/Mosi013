@@ -19,16 +19,6 @@ public class Farm {
     }
   }
 
-  public void slaughter(){
-    Animal leastHungry =new Animal();
-    for (Animal animal : this.listOfAnimal){
-      if (animal.getHunger() >= leastHungry.getHunger()){
-        leastHungry = animal;
-      }
-    }
-
-    listOfAnimal.remove(leastHungry);
-  }
 
   public void sick(int kill){
     for (int i = 0; i < kill ; i++) {

@@ -9,36 +9,24 @@ Every animal can eat() which decreases their hunger by one
 Every animal can drink() which decreases their thirst by one
 Every animal can play() which increases both by one*/
 
-  private int hunger;
-  private int thirst;
+private int hunger;
+private int thirst;
 
   public Animal() {
     this.hunger = 50;
     this.thirst = 50;
   }
 
-  public int getHunger() {
-    return hunger;
+  public void eat(){
+    hunger--;
   }
 
-  public int getThirst() {
-    return thirst;
+  public void drink(){
+    thirst--;
   }
 
-  public void eat() {
-    if (this.hunger >= 1) {
-      this.hunger--;
-    }
-  }
-
-  public void drink() {
-    if (this.thirst >= 1) {
-      this.thirst--;
-    }
-  }
-
-  public void play() {
-    this.thirst++;
-    this.hunger++;
+  public void play(){
+    hunger++;
+    thirst++;
   }
 }

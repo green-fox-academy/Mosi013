@@ -8,32 +8,32 @@ we can add(number) to this counter another whole number
 or we can add() without parameters just increasing the counter's value by one
 and we can get() the current value
 also we can reset() the value to the initial value*/
-    int counter;
-    int defaultValue;
+  int counter;
+  int defaultValue;
 
-    public Counter() {
-      this.counter = 0;
-    }
+  public Counter() {
+    this.counter = 0;
+  }
 
-    public Counter(int counter) {
-      this.counter = counter;
-      defaultValue = counter;
-    }
+  public Counter(int counter) {
+    this.counter = counter;
+    defaultValue = counter;
+  }
 
-    public void add(int numberToAdd) {
-      this.counter += numberToAdd;
-    }
+  public void add(int numberToAdd) {
+    this.counter += numberToAdd;
+  }
 
-    public void add() {
-      this.counter++;
-    }
+  public void add() {
+    this.counter++;
+  }
 
-    public int get() {
-      return counter;
-    }
+  public int get() {
+    return counter;
+  }
 
-    public void reset() {
-      this.counter = defaultValue;
-    }
+  public void reset() {
+    this.counter = defaultValue;
+  }
 
   }
