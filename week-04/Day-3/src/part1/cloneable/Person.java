@@ -2,8 +2,8 @@ package part1.cloneable;
 
 public class Person {
   private String name;
-  private int age;
-  private String gender;
+  protected int age;
+  protected String gender;
 
   public Person(String name, int age, String gender) {
     this.name = name;
@@ -35,5 +35,9 @@ public class Person {
 
   public String getGender() {
     return gender;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 }

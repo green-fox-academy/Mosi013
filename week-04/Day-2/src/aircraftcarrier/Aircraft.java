@@ -32,7 +32,6 @@ public abstract class Aircraft {
       remainingAmmo = 0;
     } else {
       currentAmmo += ammoNeeded();
-      remainingAmmo -= ammoNeeded();
     }
     return currentAmmo;
   }
@@ -58,7 +57,5 @@ public abstract class Aircraft {
     return totalDmg;
   }
 
-  public boolean isPriority(){
-    return false;
-  }
+  public abstract boolean isPriority();
 }

@@ -19,7 +19,7 @@ public class Garden {
     listOfPlants.add(tree2);
   }
 
-  public void status() {
+  public void printStatus() {
     for (Plant plant : listOfPlants) {
       plant.statusInfo();
     }
