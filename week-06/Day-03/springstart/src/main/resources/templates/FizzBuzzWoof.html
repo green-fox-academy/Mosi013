@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FizzBuzzWoof</title>
+</head>
+<body>
+    <p th:text="'Hello! This site was loaded ' + ${fizzbuzz} +        ' times since last server start.'"
+       th:style="'font-size: ' + ${fontSize} + 'px;'">
+</body>
+</html>
