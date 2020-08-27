@@ -1,0 +1,110 @@
+  body {
+      font-family: 'Roboto', sans-serif;
+      width: 80%;
+      margin: auto;
+  }
+  
+  a {
+      color: inherit;
+      text-decoration: inherit;
+  }
+  
+  header {
+      border-bottom: 3px solid #5EF2F2;
+      margin-bottom: 20px;
+      display: flex;
+  }
+  
+  header span {
+      color: #04C4D9;
+      margin-left: 30px;
+      margin-top: 20px;
+      font-size: 36px;
+      font-weight: bold;
+  }
+  
+  .navbar {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      align-content: space-between;
+      justify-content: space-around;
+      margin-bottom: 10px;
+  }
+  
+  .navbar a {
+      text-align: center;
+      color: #FFFFFF;
+      background-color: #F23838;
+      padding: 5px;
+      border-radius: 5px;
+      font-size: 20px;
+  }
+  
+  .navbar a:hover {
+      border-bottom: 3px solid black;
+  }
+  
+  table,
+  th,
+  td {
+      padding: 20px;
+      border: 1px solid rgb(255, 255, 255);
+      border-collapse: collapse;
+      font-size: 20px;
+  }
+  
+  table {
+      justify-content: center;
+      text-align: center;
+      border-style: hidden;
+      margin-top: 30px;
+      width: 100%;
+  }
+  
+  th {
+      background-color: black;
+      color: rgb(0, 195, 255);
+      text-align:  center;
+      border-bottom-width: 3px;
+      border-bottom-color: white;
+      border-right-color: white;
+  }
+  
+  th:first-child {
+      border-top-left-radius: 10px;
+  }
+  
+  th:last-child {
+      border-top-right-radius: 10px;
+  }
+  
+  td {
+      color: rgb(0, 0, 0);
+      font-size: 25px;
+      font-weight: bolder;
+  }
+  
+  tr:nth-child(odd) {
+      color: darkslategray;
+      background: rgb(219, 209, 209);
+  }
+  
+  tr:nth-child(even) {
+      color: darkslategray;
+      background: gray;
+  }
+  
+  tr:last-child td:first-child {
+      border-bottom-left-radius: 10px;
+  }
+  
+  tr:last-child td:last-child {
+      border-bottom-right-radius: 10px;
+  }
+
+  p.avg {
+      margin-top: 50px;
+      font-size: 40px;
+  }
