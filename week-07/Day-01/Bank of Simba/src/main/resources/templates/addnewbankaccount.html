@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>New Bank Account</title>
+</head>
+<body>
+<h1>Add new Bank Account</h1>
+<form method="POST" th:action="@{/add-bank-account}">
+    <label for="name"> Enter a name</label>
+    <input type="text" placeholder="Name" th:field="*{name}" placeholder="enter your name" required autofocus>
+
+    <label for="balance"> Enter the balance</label>
+    <input type="number" placeholder="Balance" th:field="*{balance}" placeholder="enter starter balance" required>
+
+    <label for="animalType"> Enter animal type</label>
+    <input type="text" name="animalType" id="animalType" placeholder="enter animal type" required>
+
+    <label for="isKing">Is it a King?</label>
+    <select id="isKing" name="isKing"> <br>
+        <option value="false">false</option>
+        <option value="true">true</option>
+    </select>
+
+    <label for="isBad">Is it a Bad Character?</label>
+    <select id="isBad" name="isBad"> <br>
+        <option value="false">false</option>
+        <option value="true">true</option>
+    </select>
+    <button type="submit">Submit</button>
+</form>
+
+</body>
+</html>

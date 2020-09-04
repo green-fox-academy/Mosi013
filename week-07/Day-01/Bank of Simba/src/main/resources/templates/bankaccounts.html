@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Bank Accounts</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Index</th>
+        <th>Name</th>
+        <th>Balance</th>
+        <th>Animal Type</th>
+        <th>King or not</th>
+        <th>Good or not</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="account: ${accounts}" th:object="${account}">
+        <td th:text="${accountStat.index}">
+        <td th:text="*{name}"></td>
+        <td th:text="*{balance}"></td>
+        <td th:text="*{animalType}"></td>
+        <td th:text="*{isKing}"></td>
+        <td th:text="*{isGood == true} ? 'Good Animal': 'Bad Animal'"></td>
+    </tr>
+    </tbody>
+</table>
+
+<div class="raise">
+    <h2>Raise the Balance</h2>
+    <form th:action="@{'/raise'}" th:method="POST">
+        <label for="names">Choose an account owner:</label>
+        <select id="names" name="accountName">
+            <option th:each="account : ${accounts}" th:value="${account.name}"
+                    th:text="${account.name}"></option>
+        </select><br>
+        <button type="submit">Raise</button>
+    </form>
+</div>
+</body>
+</html>
