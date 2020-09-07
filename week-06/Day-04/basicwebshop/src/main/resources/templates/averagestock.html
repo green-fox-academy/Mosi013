@@ -18,7 +18,14 @@
         <a href="/average-stock">Average Stock</a>
         <a href="/most-expensive">Most expensive available</a>
     </nav>
-    <p class="avg" th:text="'Average stock: ' + ${averageOfStock}"></p>
+
+    <form action="/search" method="POST">
+        <label for="search">Search for:</label>
+        <input type="text" id="search" name="name" placeholder="...something like nike" >
+        <button>Search</button>
+    </form>
+
+    <p class="avg" th:text="'Average stock: ' + ${average}"></p>
 </main>
 </body>
 </html>

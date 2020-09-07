@@ -1,11 +1,12 @@
 package com.gfa.basicwebshop.controller;
 
 import com.gfa.basicwebshop.service.WebShopService;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -49,8 +50,34 @@ public class MainController {
   }
 
   @GetMapping("/average-stock")
-  public String getAverageStock(Model model){
-    model.addAttribute("items", webShopService.getAverageStock());
+  public String getAverageStock(Model model) {
+    model.addAttribute("average", webShopService.getAverageStock());
     return "averagestock";
   }
+
+  @GetMapping("/most-expensive")
+  public String getMostExpensive(Model model) {
+    model.addAttribute("items", webShopService.getMostExpensive());
+    return "main";
+  }
+
+  @PostMapping("/search")
+  public String getSearchedItems(String search, Model model) {
+    model.addAttribute("items", webShopService.getSearchedItems(search));
+    return "main";
+  }
+
+  @GetMapping("/more-filters")
+  public String getMoreFilters(Model model) {
+    model.addAttribute("items", webShopService.getShopItemList());
+    return "morefilters";
+  }
+
+  @GetMapping("/filter-by-type/{type}")
+  public String getItemByType(Model model, @PathVariable String type){
+    model.addAttribute("items", webShopService.getItemByType(type));
+    model.addAttribute("type", type);
+    return "morefilters";
+  }
+
 }

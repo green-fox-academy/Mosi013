@@ -15,7 +15,7 @@ public class HelloAllOverTheWordController {
       "Dzien' dobry", "Olá", "Bunã ziua", "Zdravstvuyte", "Hola", "Jambo", "Hujambo", "Hej", "Sa-wat-dee",
       "Merhaba", "Selam", "Vitayu", "Xin chào", "Hylo", "Sut Mae", "Sholem Aleychem", "Sawubona"};
 
-  @RequestMapping(value = "/web/greet")
+  @RequestMapping(value = "/add-bank-account")
   public String greetInRandomLanguage(Model model,
                                       @RequestParam(defaultValue = "Márk", required = false) String name,
                                       @RequestParam(defaultValue = "100,100,200", required = false) String rgb) {

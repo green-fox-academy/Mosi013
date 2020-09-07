@@ -10,13 +10,18 @@
   }
   
   header {
-      border-bottom: 3px solid #5EF2F2;
+      border-bottom: 5px solid #5EF2F2;
       margin-bottom: 20px;
       display: flex;
   }
+
+  .more {
+    margin-left: 1100px;
+  }
   
   header span {
-      color: #04C4D9;
+      color: #5EF2F2;
+      letter-spacing: 3px;
       margin-left: 30px;
       margin-top: 20px;
       font-size: 36px;
@@ -45,7 +50,38 @@
   .navbar a:hover {
       border-bottom: 3px solid black;
   }
-  
+
+  form {
+      margin: 30px 0px 50px 30px;
+  }
+
+  form label {
+      color: #5EF2F2;
+      font-size: 30px;
+  }
+  .search{
+      display: flex;
+      margin-bottom: 10px;
+  }
+  input[type=text]{
+      width: 15%;
+      margin-right: 10px;
+      outline: none;
+      padding: 10px 0 10px 5px;
+      border: 2px dotted black;
+      border-radius: 5px;
+  }
+  form input[type=submit]{
+      background-color: #F23838;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      padding: 12px 12px;
+      text-align: center;
+      font-size: 16px;
+      letter-spacing: 0.1em;
+  }
+
   table,
   th,
   td {
@@ -107,4 +143,5 @@
   p.avg {
       margin-top: 50px;
       font-size: 40px;
+      font-weight: bold;
   }

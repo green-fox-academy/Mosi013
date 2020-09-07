@@ -19,11 +19,11 @@ public class WebShopService {
 
   public List<ShopItem> addShopItem() {
     return Arrays.asList(
-        new ShopItem("Running shoes", "NIke running shoes for every day sport", 1000.0, 5),
-        new ShopItem("Printer", "Some HP printer that will print pages", 3000.0, 2),
-        new ShopItem("Coca cola", "0.5l standard coke", 25.0, 0),
-        new ShopItem("Wokin", "Chicken with fried rice and WOKIN sauce", 119.0, 100),
-        new ShopItem("T-shirt", "Blue with a corgi on a bike", 300.0, 1)
+        new ShopItem("Running shoes", "Clothes and Shoes", "NIke running shoes for every day sport", 1000.0, 5),
+        new ShopItem("Printer", "Electronics", "Some HP printer that will print pages", 3000.0, 2),
+        new ShopItem("Coca cola", "Beverages and Snacks", "0.5l standard coke", 25.0, 0),
+        new ShopItem("Wokin", "Beverages and Snacks", "Chicken with fried rice and WOKIN sauce", 119.0, 100),
+        new ShopItem("T-shirt", "Clothes and Shoes", "Blue with a corgi on a bike", 300.0, 1)
     );
   }
 
@@ -49,11 +49,31 @@ public class WebShopService {
         .collect(Collectors.toList());
   }
 
-  public double getAverageStock(){
-    Double num = shopItemList.stream()
+  public double getAverageStock() {
+    return shopItemList.stream()
         .mapToDouble(item -> item.getQuantityOfStock())
         .average()
-        .orElseThrow();
-    return num;
+        .getAsDouble();
+  }
+
+  public ShopItem getMostExpensive() {
+    return shopItemList.stream()
+        .filter(item -> item.getQuantityOfStock() > 0)
+        .max(Comparator.comparing(ShopItem::getPrice))
+        .get();
+
+  }
+
+  public List<ShopItem> getSearchedItems(String search) {
+    return shopItemList.stream()
+        .filter(item -> item.getName().toLowerCase().contains(search) ||
+            item.getDescription().toLowerCase().contains(search))
+        .collect(Collectors.toList());
+  }
+
+  public List<ShopItem> getItemByType(String type) {
+    return shopItemList.stream()
+        .filter(item -> item.getType().equals(type))
+        .collect(Collectors.toList());
   }
 }

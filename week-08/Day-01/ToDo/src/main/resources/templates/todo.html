@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" html xmlns:th="http://www.thymeleaf.org" xmlns:text-align="http://www.w3.org/1999/xhtml">
+<head>
+    <style>
+        h1 {text-align: center;}
+
+        .btn btn-primary btn-lg active{
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>ToDos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+<h1>TODOS FOR TODAY</h1>
+<br>
+<br>
+
+<form action="/add">
+    <button type="submit" class="btn btn-primary btn-lg active">Add new ToDO</button>
+</form>
+
+<form action="/search" method="post">
+    <label for="search">Search for:</label>
+    <input type="search" placeholder="...something like nike" id="search" name="search" required>
+    <button type="button" class="btn btn-primary">Search</button>
+</form>
+
+<table class="table table-hover-striped" >
+    <thead>
+    <tr class="table-dark">
+        <th>ID</th>
+        <th>Action</th>
+        <th>DONE</th>
+        <th>URGENT</th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr class="bg-warning" th:each="todo : ${todos}" th:object="${todo}">
+        <td th:text="*{id}"></td>
+        <td th:text="*{action}"></td>
+        <td>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value=""
+                       th:checked="${todo.getIsDone().equals(true)}" id="isDone">
+                <label class="form-check-label" for="isDone">
+
+                </label>
+            </div>
+        </td>
+        <td>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value=""
+                       th:checked="${todo.getIsUrgent().equals(true)}"id="isUrgent">
+                <label class="form-check-label" for="isUrgent">
+                </label>
+            </div>
+        </td>
+        <td><a th:href="'/delete?id='+${todo.id}" class="btn btn-danger">Delete</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
