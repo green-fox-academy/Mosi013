@@ -4,9 +4,8 @@
     <style>
         h1 {text-align: center;}
 
-        .btn btn-primary btn-lg active{
-            justify-content: center;
-            align-items: center;
+        .button{
+            margin: auto;
         }
     </style>
     <meta charset="UTF-8">
@@ -17,11 +16,14 @@
 <body>
 <h1>TODOS FOR TODAY</h1>
 <br>
+
 <br>
 
+<div class="button">
 <form action="/add">
     <button type="submit" class="btn btn-primary btn-lg active">Add new ToDO</button>
 </form>
+</div>
 
 <form action="/search" method="post">
     <label for="search">Search for:</label>
@@ -62,7 +64,12 @@
                 </label>
             </div>
         </td>
+
         <td><a th:href="'/delete?id='+${todo.id}" class="btn btn-danger">Delete</a></td>
+
+        <td><a class="btn btn-primary btn-lg active" th:href="@{'/edit/' + ${todo.id}}">Edit</a></td>
+
+
     </tr>
     </tbody>
 </table>

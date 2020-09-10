@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignee</title>
+</head>
+<body>
+<header>
+    <h1>Assignees</h1>
+    <button><a th:href="@{'/add-assignee'}">Add new Assignee</a></button>
+</header>
+<main>
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="assignee :${assignees}" th:object="${assignee}">
+        <td th:text="*{id}"></td>
+        <td th:text="*{name}"></td>
+        <td th:text="*{email}"></td>
+        <td><a th:href="@{|/${assignee.id}/editAssignee|}">edit</a></td>
+        <td><a th:href="@{|/${assignee.id}/deleteAssignee|}">delete</a></td>
+    </tr>
+    </tbody>
+</table>
+</main>
+</body>
+</html>

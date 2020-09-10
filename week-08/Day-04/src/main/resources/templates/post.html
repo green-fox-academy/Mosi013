@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Reddit 2.0</title>
+</head>
+<body>
+<header>
+<a href="/add-new-post">Submit new post</a>
+    <a th:href="@{'/top10'}">Top 10 post</a>
+    <a th:href="@{'/'}">All posts</a>
+</header>
+<main>
+    <h1>Trending posts</h1>
+
+    <table>
+        <thead>
+        <tr>
+            <th hidden>Counter</th>
+            <th hidden>+</th>
+            <th hidden>-</th>
+            <th hidden>Post</th>
+            <th hidden>Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="post : ${posts}" th:object="${post}">
+            <td th:text="*{counter}"></td>
+            <td><a th:href="@{|/+/${post.id}|}">+</a></td>
+            <td><a th:href="@{|/-/${post.id}|}">-</a></td>
+            <td></td>
+            <td th:text="*{title}"></td>
+            <td th:text="*{url}" hidden></td>
+            <td th:text="'Posted date: ' + ${#dates.format(post.postedDate, 'dd-MM-yyyy HH:mm')}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+
+</main>
+</body>
+</html>

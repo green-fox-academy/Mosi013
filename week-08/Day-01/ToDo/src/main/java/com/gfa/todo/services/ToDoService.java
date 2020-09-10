@@ -30,4 +30,11 @@ public class ToDoService {
     toDoRepositorie.save(newtodo);
   }
 
+  public ToDo getTodoById(long todoId) {
+   return toDoRepositorie.findById(todoId);
+  }
+
+  public void editTodo(ToDo todo) {
+    toDoRepositorie.edit(todo);
+  }
 }

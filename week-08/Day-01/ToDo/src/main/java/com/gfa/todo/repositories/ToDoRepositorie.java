@@ -34,7 +34,13 @@ public class ToDoRepositorie {
     toDoList.add(newtodo);
   }
 
+  public ToDo findById(long todoId) {
+    return  toDoList.get((int) getIndex(todoId));
+  }
 
+  public void edit(ToDo todo) {
+    toDoList.set((int) getIndex(todo.getId()), todo);
+  }
 
 
 
@@ -50,5 +56,6 @@ public class ToDoRepositorie {
     }
     return index;
   }
+
 
 }

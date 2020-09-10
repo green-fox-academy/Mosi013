@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+</head>
+<body>
+<header>
+    <h1>Edit Todo</h1>
+</header>
+<main>
+    <form method="post" th:object="${editTodo}">
+
+        <input type="hidden" th:field="*{id}" required>
+        <div>
+            <label for="action">Action:</label>
+            <input type="text" id="action" th:field="*{title}" required>
+        </div>
+        <br>
+        <label for="isUrgent">Is it Urgent?</label>
+        <select id="isUrgent" name="isUrgent"> <br>
+            <option value="false">false</option>
+            <option value="true">true</option>
+        </select>
+        <label for="isDone">Is it Done?</label>
+        <select id="isDone" name="isDone"> <br>
+            <option value="false">false</option>
+            <option value="true">true</option>
+        </select>
+
+
+        <br>
+        <input type="submit" >
+    </form>
+</main>
+</body>
+</html>
