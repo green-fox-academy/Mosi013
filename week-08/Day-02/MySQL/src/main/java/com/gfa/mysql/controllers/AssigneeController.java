@@ -32,9 +32,9 @@ public class AssigneeController {
     model.addAttribute("editAssignee", assigneeService.getAssigneeById(id));
     return "edit-assignee";
   }
-
+//post
   @GetMapping(value = "/{id}/deleteAssignee")
-  public String deleteTodo(@PathVariable Long id) {
+  public String deleteAssignee(@PathVariable Long id) {
     assigneeService.deleteAssigneeById(id);
     return "redirect:/assignees";
   }
@@ -47,7 +47,7 @@ public class AssigneeController {
 
   //------------------------------------------------------------------------------------
   @PostMapping("/{id}/editAssignee")
-  public String editTodo(@ModelAttribute Assignee editAssignee){
+  public String editAssignee(@ModelAttribute Assignee editAssignee){
     assigneeService.updateAssingee(editAssignee);
     return "redirect:/assignees";
   }

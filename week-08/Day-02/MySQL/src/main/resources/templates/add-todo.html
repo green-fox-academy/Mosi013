@@ -11,7 +11,8 @@
 <main>
 
     <form th:object="${newTodo}" th:action="@{'/add'}" th:method="POST">
-        <input type="text" th:field="*{title}" required>
+        <label for="Title">Todo</label>
+        <input type="text" id="Title" name="Title" th:field="*{title}" required>
         <button type="submit">ADD</button>
     </form>
 </main>

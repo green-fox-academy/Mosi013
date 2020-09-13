@@ -16,14 +16,17 @@ import lombok.Setter;
 @Entity
 @Table(name = "user")
 public class User {
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
+
   private String userName;
+  private String password;
   private String emailAddress;
-  private String phoneNumber;
+  private boolean active;
 
 
-  @OneToMany(mappedBy = "user ")
+  @OneToMany(mappedBy = "user")
   private List<Post> postList;
 }

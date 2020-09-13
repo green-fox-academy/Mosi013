@@ -4,6 +4,7 @@ import com.gfa.mysql.models.Assignee;
 import com.gfa.mysql.models.Todo;
 import com.gfa.mysql.repositories.AssigneeRepository;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,23 +19,21 @@ public class AssigneeService {
     this.assigneeRepository = assigneeRepository;
   }
 
-
   public List<Assignee> getAssignees() {
     return assigneeRepository.findAll();
   }
 
   public Assignee getAssigneeById(Long id) {
     Optional<Assignee> selectAssignee = assigneeRepository.findById(id);
-    return selectAssignee.get();
+    return selectAssignee.orElseThrow(NoSuchElementException::new);
   }
 
-  public void updateAssingee(Assignee editAssignee) {
-    assigneeRepository.save(editAssignee);
+  public void updateAssingee(Assignee assigneeToEdited) {
+    assigneeRepository.save(assigneeToEdited);
   }
 
   public void deleteAssigneeById(Long id) {
-    Optional<Assignee> selectedAssignee = assigneeRepository.findById(id);
-    selectedAssignee.ifPresent(assigneeRepository::delete);
+    assigneeRepository.findById(id).ifPresent(assigneeRepository::delete);
   }
 
   public void addNewAssignee(Assignee assignee) {

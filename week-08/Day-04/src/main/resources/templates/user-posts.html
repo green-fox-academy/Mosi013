@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Users and Posts</title>
+</head>
+<body>
+<header>
+    <a href="/add-new-post">Submit new post</a>
+    <a th:href="@{'/top10'}">Top 10 post</a>
+    <a th:href="@{'/'}">All posts</a>
+</header>
+<main>
+    <h1>Trending posts</h1>
+
+    <table>
+        <thead>
+        <tr th:each="user : ${users}" th:object="${user}">
+            <th>user</th>
+            <th th:each="post : ${posts}" th:object="${post}"></th>
+            <th hidden>Post</th>
+            <th hidden>Date</th>
+        </tr>
+        </thead>
+        <tbody>
+            <ul>
+                <li th:text="*{counter}"></li>
+                <li th:text="*{title}"></li>
+                <li th:text="*{postedDate}"></li>
+            </ul>
+        </tbody>
+    </table>
+
+
+</main>
+</body>
+</html>

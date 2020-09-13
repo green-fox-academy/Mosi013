@@ -2,9 +2,14 @@ package com.gfa.reddit.services;
 
 import com.gfa.reddit.models.Post;
 import com.gfa.reddit.repositories.PostRepository;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor
@@ -43,6 +48,4 @@ public class PostService {
       postRepository.save(post);
     }
   }
-
-
 }

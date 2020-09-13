@@ -6,10 +6,22 @@
 </head>
 <body>
 <header>
+    <h1>Login</h1>
 
 </header>
 <main>
+    <form th:action="@{'/login'}" th:method="post">
+        <label for="name">Username</label>
+        <input id="name" type="text" name="username">
+        <label for="password">Password</label>
+        <input id="password" type="password" name="password">
+        <button type="submit">LOGIN</button>
+    </form>
 
+    <a href="/register">Register</a>
+
+    <p th:if="${invalidUserdata} != null"
+       th:text="'Invalid userdata!'"></p>
 </main>
 </body>
 </html>

@@ -4,8 +4,12 @@ import com.gfa.reddit.models.Post;
 import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
-public interface PostRepository extends CrudRepository<Post, Integer> {
+public interface PostRepository extends CrudRepository<Post, Integer>,
+PagingAndSortingRepository<Post,Integer>{
+
+
 
   @Query(value = "SELECT * FROM post ORDER BY counter DESC", nativeQuery = true)
   List<Post> getAllPosts();

@@ -9,8 +9,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class RedditApplication {
 
-  private final PostRepository redditRepository;
-
   public static void main(String[] args) {
     SpringApplication.run(RedditApplication.class, args);
   }
